@@ -3,6 +3,7 @@
 Stack Overboard Model Unit Tests | Written in Java
 
 Code files: /src/main/java/com/teamtreehouse/techdegree/overboard
+
 Test files: /src/test/com/teamtreehouse/techdegree/overboard/model
 
 ## Minimum Viable Product:
