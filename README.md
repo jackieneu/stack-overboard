@@ -1,40 +1,36 @@
-## Welcome to Stack Overboard
+# Techdegree Project 3
 
-This is a WIP (Work In Progress) but the basic idea is this:
+Stack Overboard Model Unit Tests | Written in Java
 
-```java
-// A board is a topic area on a bulletin board
-Board board = new Board("Java");
+Code files: /src/main/java/com/teamtreehouse/techdegree/overboard
+Test files: /src/test/com/teamtreehouse/techdegree/overboard/model
 
-// Create new users from the board
-User alice = board.createUser("alice");
-User bob = board.createUser("bob");
-User charles = board.createUser("charles");
+## Minimum Viable Product:
+Project Description:
 
-// Users create questions
-Question question = alice.askQuestion("What is a String?");
-// They can be upvoted
-bob.upVote(question);
+A friend of yours is attempting to recreate a similar website/bulletin board experience to one that happens on Stack Overflow, they are calling it Stack Overboard. There will be several “boards” which house different topic areas and skill levels.
 
-// Users can also answer questions
-Answer answer = bob.answerQuestion(question, "It is a series of characters, strung together...");
-// Answers can be upvoted
-alice.upVote(answer);
 
-// and downvoted
-charles.downVote(answer);
-charles.downVote(answer);
+They have started, like most projects do, by defining the model that they will be using. As they got deeper into designing the requirements they realized that there is a ton of stuff going on especially around reputation and their point system. They have decided that they better put some unit tests in place to ensure that the model is interacting the way that it is expected.
 
-// and accepted by the person who asked the question
-alice.accept(answer);
 
-// There is then reputation
-System.out.println("Alice: " + alice.getReputation()); // Alice's question got upvoted so this prints Alice: 5
-System.out.println("Bob: " + bob.getReputation()); // Bob's answer got upvoted (10) and his answer was accepted (15)
-                                                   // so this prints Bob: 25
-```
+Unfortunately though, they do not have unit testing skills like you do. They’ve asked you, the unit test master, to help them knock it out.
 
-## TODO
-[ ] TESTS!
-[ ] Use a data store!
-[ ] Build the website surrounding this awesome model
+
+The way things are currently defined all activities they have concerns about are coming from the User model, check the README.md file in the root for more information. They’ve done their best to ensure that all activity happens from there using some access modifier techniques.
+
+
+Since you know that you are testing the Unit of Work and not necessarily the implementation you have agreed to take on the task. 
+
+
+- Create a new Test Fixture for the User model in a separate but same package test directory structure. Make sure to use JUnit4. When creating your tests in IntelliJ make sure you select JUnit4 as the testing library.
+- Write a test to ensure that the questioner’s reputation goes up by 5 points if their question is upvoted.
+- Write a test to assert that the answerer’s reputation goes up by 10 points if their answer is upvoted.
+- Write a test that proves that having an answer accepted gives the answerer a 15 point reputation boost
+- Using a test, ensure that voting either up or down is not allowed on questions or answers by the original author, you know to avoid gaming the system. Ensure the proper exceptions are being thrown.
+- Write a test to make sure that only the original questioner can accept an answer. Ensure the intended messaging is being sent to back to the caller.
+
+
+## Extra Credit:
+- Create additional objects which can be shared across tests.
+- Reviewing the User.getReputation method may expose some code that is not requested to be tested in the Meets Project instructions. Write the missing test.
